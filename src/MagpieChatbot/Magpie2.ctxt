@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Magpie2
+comment1.params=
+comment1.target=java.lang.String\ getGreetings()
+comment2.params=input
+comment2.target=java.lang.String\ getResponse(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getFarewell()
+comment4.params=original\ tofind
+comment4.target=int\ findLocation(java.lang.String,\ java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ randomResponse()
+numComments=6
