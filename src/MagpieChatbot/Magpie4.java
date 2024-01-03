@@ -1,6 +1,6 @@
 package MagpieChatbot;
 
-public class Magpie3 {
+public class Magpie4 {
     public String getGreetings(){
         return "Hello!, how can I help you?";
     }
@@ -30,6 +30,12 @@ public class Magpie3 {
         }
         else if(findLocation(input,"weather")!=-1) {
             return "It's been quite odd right?";
+        }
+        else if(input.matches("i\\s\\w*\\syou")){
+            return "Why do you "+findNextWord(input,"i")+" me?";
+        }
+        else if(input.matches("you\\s\\w*\\sme")){
+            return "Why do you think I "+findNextWord(input,"you")+" you?";
         }
         else if(findLocation(input,"i like")!=-1){
             return "Why do you like " + findNextWord(input,"i like")+"?";
@@ -90,3 +96,4 @@ public class Magpie3 {
         return responses[randomnum];
     }
 }
+
