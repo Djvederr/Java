@@ -23,6 +23,7 @@ public class MinesweeperText {
         printBeforeBoard();
         int[] choice = getRowCol();
         board.generateBoard(choice[0],choice[1]);
+        board.testBoard();
         //board.testBoard();
         while(!board.gameOver) {
             printBoard();
@@ -32,6 +33,11 @@ public class MinesweeperText {
             }
             printBoard();
         }
+        if(board.win)
+            System.out.println("YOU WON!");
+        else
+            System.out.println("YOU LOST!");
+        board.testBoard();
     }
     public void printBeforeBoard(){
         for(int i=1;i<=gameLevel[0];i++){
@@ -66,5 +72,9 @@ public class MinesweeperText {
             }
             System.out.println();
         }
+        for(int j=0;j<board.board[0].length;j++){
+            System.out.print("---");
+        }
+        System.out.println();
     }
 }

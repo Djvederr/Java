@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Board {
     Tile [][] board;
     boolean gameOver = false;
+    boolean win=false;
     int bombamt;
 
     public Board(int x1, int  y1, int bombamt){
@@ -119,17 +120,35 @@ public class Board {
         return true;
     }
 
+    public boolean gameWin(){
+        int sum=0;
+        for(Tile[] row:board){
+            for(Tile t:row){
+                if(t.getState())
+                    sum++;
+            }
+        }
+        return sum==((board.length*board[0].length)-bombamt);
+    }
 
 
     public void openTile(int x,int y){
         Tile t=board[x][y];
         t.setState(true);
+
         if(t.getSpace()==-1){
             gameOver=true;
         }
-        else if(t.getSpace()==0){
-            openVoid(x,y);
+        else {
+            if(t.getSpace()==0){
+                openVoid(x,y);
+            }
+            if(gameWin()){
+                gameOver=true;
+                win=true;
+            }
         }
+
 
     }
 
