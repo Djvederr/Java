@@ -6,7 +6,7 @@ public class Test {
         for(int i=0;i<3;i++){
             for(int o=0;o<3;o++){
                 board[i][o]=new Tile();
-                System.out.print(board[i][0].getContent());
+                System.out.print(board[i][0].getSpace());
             }
             System.out.println();
         }
