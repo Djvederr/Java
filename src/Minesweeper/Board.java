@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Board {
     Tile [][] board;
     boolean gameOver = false;
+
+
     boolean win=false;
     int bombamt;
 
@@ -91,9 +93,11 @@ public class Board {
             return true;
         Tile[] tiles=getNeighbours(startX,startY);
         for(Tile t: tiles){
-            int[] loc=getXYFromTile(t);
-            if(loc[0]==bombX && loc[1]==bombY){
-                return true;
+            if(t!=null) {
+                int[] loc = getXYFromTile(t);
+                if (loc[0] == bombX && loc[1] == bombY) {
+                    return true;
+                }
             }
         }
         return false;
