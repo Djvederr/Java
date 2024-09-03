@@ -3,6 +3,7 @@ package Minesweeper;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import javax.swing.*;
 
 public class MinesweeperGUI implements ActionListener
@@ -25,7 +26,7 @@ public class MinesweeperGUI implements ActionListener
 
         icons=new Icon[10];
         for(int i=-1;i<=8;i++){
-            icons[i+1]=new ImageIcon("resources\\Opened-"+i+".png");
+            icons[i+1]=new ImageIcon(Objects.requireNonNull(this.getClass().getResource("images/Opened-" + i + ".png")));
         }
 
         frameObj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +34,7 @@ public class MinesweeperGUI implements ActionListener
         buttonArr=new JButton[x1][y1];
         for(int i=0;i<x1;i++){
             for(int j=0;j<y1;j++){
-                buttonArr[i][j]=new JButton(new ImageIcon("resources\\Unopened.png"));
+                buttonArr[i][j]=new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("images/Unopened.png"))));
                 buttonArr[i][j].addActionListener(this);
                 //System.out.print(board[i][0].getTile());
                 frameObj.add(buttonArr[i][j]);
@@ -61,7 +62,7 @@ public class MinesweeperGUI implements ActionListener
                 //System.out.print(board[i][0].getTile());
                 frameObj.add(buttonArr[i][j]);
             }
-            //System.out.println();
+
 
         }
     }
